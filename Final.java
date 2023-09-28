@@ -4,9 +4,9 @@ class Main {
     public static void main(String[] args) {
         Employee employee1 = new Employee("Tom", 30, "UX/UI", "EMP001");
         Employee employee2 = new Employee("Tim", 30, "FrontEnd", "EMP002");
-        Project project1 = new Project("Web A : Developing a web application");
-        Project project2 = new Project("Mobile app A : Developing a mobile app");
-        Project project3 = new Project("Web A : Developing a web application");
+        Project project1 = new Project("Web A : ", "Developing a web application");
+        Project project2 = new Project("Mobile app A : ", "Developing a mobile app");
+        Project project3 = new Project("Web A : ", "Developing a web application");
 
         employee1.addProject(project1);
         employee1.addProject(project2);
@@ -128,16 +128,26 @@ class Employee {
         System.out.println("EmpID : " + empID);
         System.out.println("Projects: ");
         for (Project project : myproject) {
-            System.out.println("    " + project.getDescription());
+            System.out.println("    " + project.getProjectName() + project.getDescription());
         }
     }
 }
 
 class Project {
+    String ProjectName;
     String description;
 
-    public Project(String description) {
+    public Project(String ProjectName, String description) {
+        this.ProjectName = ProjectName;
         this.description = description;
+    }
+
+    public String getProjectName() {
+        return ProjectName;
+    }
+
+    public void setProjectName(String ProjectName) {
+        this.ProjectName = ProjectName;
     }
 
     public String getDescription() {
